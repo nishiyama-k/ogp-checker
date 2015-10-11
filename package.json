@@ -1,0 +1,10 @@
+{
+  "name": "ogp-checker",
+  "version": "0.1.0",
+  "description": "OGP check web site",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-watch": "*"
+  }
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div id="result" class="panel panel-default">
+		<h5>OGP テスト結果</h5>
+		<div class="ogp-image" th:if="${model.image != null}">
+			<div class="ogp-image-img">
+				<div class="ogp-image-img-wrapper">
+					<a th:href="${model.url.content}" target="_blank"><img
+						th:attr="src=${model.image.content}" /></a>
+				</div>
+			</div>
+			<div class="ogp-image-content">
+				<div class="ogp-image-title" th:text="${model.title.content}"></div>
+				<div class="ogp-image-description"
+					th:text="${model.description.content}"></div>
+			</div>
+		</div>
+
+		<div class="row no-margin" th:if="${model.title != null}">
+			<div class="col-md-2 title">title</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${model.title.content}"></div>
+				<div class="row no-margin element" th:text="${model.title.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.siteName != null}">
+			<div class="col-md-2 siteName">site_name</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.siteName.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.siteName.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.type != null}">
+			<div class="col-md-2 title">type</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${model.type.content}"></div>
+				<div class="row no-margin element" th:text="${model.type.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.url != null}">
+			<div class="col-md-2 title">url</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${model.url.content}"></div>
+				<div class="row no-margin element" th:text="${model.url.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.description != null}">
+			<div class="col-md-2 title">description</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.description.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.description.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.determiner != null}">
+			<div class="col-md-2 title">determiner</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.determiner.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.determiner.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.locale != null}">
+			<div class="col-md-2 title">locale</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${model.locale.content}"></div>
+				<div class="row no-margin element" th:text="${model.locale.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.localeAlternate != null}">
+			<div class="col-md-2 title">locale_alternate</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.localeAlternate.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.localeAlternate.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.image != null}">
+			<div class="col-md-2 title">image</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${model.image.content}"></div>
+				<div class="row no-margin element" th:text="${model.image.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.imageSecureUrl != null}">
+			<div class="col-md-2 title">imageSecureUrl</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.imageSecureUrl.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.imageSecureUrl.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.imageType != null}">
+			<div class="col-md-2 title">imageType</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.imageType.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.imageType.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.imageWidth != null}">
+			<div class="col-md-2 title">imageWidth</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.imageWidth.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.imageWidth.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.imageHeight != null}">
+			<div class="col-md-2 title">imageHeight</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.imageHeight.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.imageHeight.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.video != null}">
+			<div class="col-md-2 title">video</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${model.video.content}"></div>
+				<div class="row no-margin element" th:text="${model.video.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.videoSecureUrl != null}">
+			<div class="col-md-2 title">videoSecureUrl</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.videoSecureUrl.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.videoSecureUrl.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.videoType != null}">
+			<div class="col-md-2 title">videoType</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.videoType.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.videoType.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.videoWidth != null}">
+			<div class="col-md-2 title">videoWidth</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.videoWidth.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.videoWidth.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.videoHeight != null}">
+			<div class="col-md-2 title">videoHeight</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.videoHeight.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.videoHeight.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.audio != null}">
+			<div class="col-md-2 title">audio</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${model.audio.content}"></div>
+				<div class="row no-margin element" th:text="${model.audio.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.audioSecureUrl != null}">
+			<div class="col-md-2 title">audioSecureUrl</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.audioSecureUrl.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.audioSecureUrl.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.audioType != null}">
+			<div class="col-md-2 title">audioType</div>
+			<div class="col-md-10">
+				<div class="row no-margin content"
+					th:text="${model.audioType.content}"></div>
+				<div class="row no-margin element"
+					th:text="${model.audioType.element}"></div>
+			</div>
+		</div>
+		<div class="row no-margin" th:if="${model.unknownTags != null}"
+			th:each="tag : ${model.unknownTags}">
+			<div class="col-md-2 title">unknown</div>
+			<div class="col-md-10">
+				<div class="row no-margin content" th:text="${tag.content}"></div>
+				<div class="row no-margin element" th:text="${tag.element}"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

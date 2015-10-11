@@ -18,12 +18,13 @@ public class OgpCheckServiceImpl implements OgpCheckService {
 
 	@Override
 	public OgpCheckResult check(String uri) {
+		System.out.println("check uri:" + uri);
 		List<Element> ogps = new ArrayList<>();
 		try {
 			Document root = Jsoup.connect(uri).get();
 			ogps = extractOgMetaTags(root);
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return startCheck(ogps);
 	}
@@ -39,7 +40,6 @@ public class OgpCheckServiceImpl implements OgpCheckService {
 					String property = elm.attr("property");
 					return property.startsWith("og:");
 				}).collect(Collectors.toList());
-		ogs.stream().forEach(elm -> System.out.println(elm));
 		return ogs;
 	}
 
@@ -49,6 +49,7 @@ public class OgpCheckServiceImpl implements OgpCheckService {
 	 */
 	private OgpCheckResult startCheck(List<Element> ogps) {
 		OgpCheckResult result = new OgpCheckResult();
+		result.setNoData(ogps.size() == 0);
 		for (Element elm : ogps) {
 			Ogp ogp = Ogp.of(elm);
 			switch (ogp.getProperty()) {

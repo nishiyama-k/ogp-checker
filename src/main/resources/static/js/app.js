@@ -31,15 +31,15 @@ com.ogpcheck.App.prototype.onClickCheckOgp_ = function() {
 		'url' : 'regexp',
 		'data' : $('#uri').val(),
 		'success' : $.proxy(this.onSubmitResult_, this),
+		'error': $.proxy(this.onSubmitError_, this)
 	});
 };
 
-/**
- * handle submit result
- * 
- * @param{string} profileNo
- * @private
- */
 com.ogpcheck.App.prototype.onSubmitResult_ = function(response) {
 	$('.container').append($(response)[1]);
 };
+
+com.ogpcheck.App.prototype.onSubmitError_ = function(response) {
+	alert(response.responseJSON.message);
+};
+

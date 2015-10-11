@@ -10,6 +10,8 @@ public class OgpCheckResult {
 	public OgpCheckResult() {
 	}
 
+	private Boolean isNoData = true;
+
 	// Basic
 	private Ogp title;
 	private Ogp type;
@@ -43,7 +45,15 @@ public class OgpCheckResult {
 
 	// unknown
 	private List<Ogp> unknownTags = null;
-	
+
+	public boolean isNoData() {
+		return isNoData;
+	}
+
+	public void setNoData(Boolean isNoData) {
+		this.isNoData = isNoData;
+	}
+
 	public Ogp getTitle() {
 		return title;
 	}
@@ -219,9 +229,9 @@ public class OgpCheckResult {
 	public void setUnknownTags(List<Ogp> unknownTags) {
 		this.unknownTags = unknownTags;
 	}
-	
-	public void addUnknownTags(Ogp ogp){
-		if (this.unknownTags == null){
+
+	public void addUnknownTags(Ogp ogp) {
+		if (this.unknownTags == null) {
 			this.unknownTags = new ArrayList<>();
 		}
 		this.unknownTags.add(ogp);

@@ -16,6 +16,9 @@ body {
 .container {
   margin-bottom: 30px;
 }
+#try {
+  width: 150px;
+}
 .ogp-image {
   max-width: 100%;
   width: 470px;

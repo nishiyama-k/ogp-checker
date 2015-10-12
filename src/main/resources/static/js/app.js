@@ -10,17 +10,20 @@ com.ogpcheck = com.ogpcheck || {};
  * @constructor
  */
 com.ogpcheck.App = function() {
-	$('input:visible').first().focus();
-	this.initializePlugins_();
-	this.bindEvent_();
+    $('input:visible').first().focus();
+    this.initializePlugins_();
+    this.bindEvent_();
 };
 
+/**
+ * @private
+ */
 com.ogpcheck.App.prototype.initializePlugins_ = function() {
-	this.refreshAutocomplete_();
-	var source = JSON.parse(localStorage.getItem('autocomplete'));
-	$('#uri').autocomplete({
-		source : [ source ]
-	});
+    this.refreshAutocomplete_();
+    var source = JSON.parse(localStorage.getItem('autocomplete'));
+    $('#uri').autocomplete({
+        source: [source]
+    });
 };
 
 /**
@@ -29,55 +32,69 @@ com.ogpcheck.App.prototype.initializePlugins_ = function() {
  * @private
  */
 com.ogpcheck.App.prototype.bindEvent_ = function() {
-	$('#try').click($.proxy(this.onClickCheckOgp_, this));
-	$('#uri').keypress($.proxy(function(e) {
-		if (e.which == 13){// enter
-			this.onClickCheckOgp_();
-		}
-	}, this));
+    $('#try').click($.proxy(this.onClickCheckOgp_, this));
+    $('#uri').keypress($.proxy(function(e) {
+        if (e.which == 13) { // enter
+            this.onClickCheckOgp_();
+        }
+    }, this));
 };
 
+/**
+ * @private
+ */
 com.ogpcheck.App.prototype.onClickCheckOgp_ = function() {
-	$('.container').find('#result').hide('fold',{}, 300, function(){
-		$('.container').find('#result').remove();
-	});
-	$.ajax({
-		headers : {
-			'Content-Type' : 'application/json'
-		},
-		'type' : 'POST',
-		'url' : 'regexp',
-		'data' : $('#uri').val(),
-		'success' : $.proxy(this.onSubmitResult_, this),
-		'error' : $.proxy(this.onSubmitError_, this)
-	});
+    $('.container').find('#result').hide('fold', {}, 300, function() {
+        $('.container').find('#result').remove();
+    });
+    $.ajax({
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        'type': 'POST',
+        'url': 'regexp',
+        'data': $('#uri').val(),
+        'success': $.proxy(this.onSubmitResult_, this),
+        'error': $.proxy(this.onSubmitError_, this)
+    });
 };
 
+/**
+ * @param{string} response
+ * @private
+ */
 com.ogpcheck.App.prototype.onSubmitResult_ = function(response) {
-	$('.container').append($(response)[1]);
-	$('.container').find('#result').show('blind',{}, 500);
-	this.refreshAutocomplete_();
-	var source = JSON.parse(localStorage.getItem('autocomplete'));
-	$('#uri').autocomplete('setSource', [ source ]);
+    $('.container').append($(response)[1]);
+    $('.container').find('#result').show('blind', {}, 500);
+    this.refreshAutocomplete_();
+    var source = JSON.parse(localStorage.getItem('autocomplete'));
+    $('#uri').autocomplete('setSource', [source]);
 
 };
 
+/**
+ * @private
+ */
 com.ogpcheck.App.prototype.refreshAutocomplete_ = function() {
-	var source = JSON.parse(localStorage.getItem('autocomplete'));
-	if (!source) {
-		source = [];
-	}
-	var newUri = $('#uri').val();
-	for (var i = 0; i < source.length; i++) {
-		if (source[i] === newUri) {
-			source.splice(i, 1);
-			break;
-		}
-	}
-	source.unshift($('#uri').val());
-	localStorage.setItem('autocomplete', JSON.stringify(source));
+    var source = JSON.parse(localStorage.getItem('autocomplete'));
+    if (!source) {
+        source = [];
+    }
+    var newUri = $('#uri').val();
+    for (var i = 0; i < source.length; i++) {
+        if (source[i] === newUri) {
+            source.splice(i, 1);
+            break;
+        }
+    }
+    source.unshift($('#uri').val());
+    localStorage.setItem('autocomplete', JSON.stringify(source));
 };
 
+/**
+ * @param{string} response
+ * @private
+ */
 com.ogpcheck.App.prototype.onSubmitError_ = function(response) {
-	alert(response.responseJSON.message);
+    alert(response.responseJSON.message);
 };

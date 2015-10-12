@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html th:attr="lang=#{lang}" xmlns:th="http://www.thymeleaf.org">
+<html th:attr="lang=#{lang}" xmlns:th="http://www.thymeleaf.org"
+	prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 <head th:attr="lang=#{lang}">
 <meta charset="utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title th:text="#{head.title}"></title>
 
-<meta name="description"
-	th:attr="content=#{head.description}"></meta>
+<title th:text="#{head.title}"></title>
+<meta name="description" th:attr="content=#{head.description}"></meta>
+
+<!-- ogp -->
+<meta property="og:title" th:attr="content=#{head.title}"></meta>
+<meta property="og:site_name" th:attr="content=#{h-title}"></meta>
+<meta property="og:type" content="website"></meta>
+<meta property="og:url" content="https://ogp-checker.herokuapp.com/"></meta>
+<meta property="og:image" content="https://ogp-checker.herokuapp.com/img/logo.png"></meta>
+<meta property="og:description" th:attr="content=#{head.ogp.description}"></meta>
 
 <!-- debug -->
 <!-- <link href="css/lib/jquery-ui.min.css" rel="stylesheet"></link>
@@ -39,7 +47,8 @@
 						class="form-control" name="uri" placeholder="http://ogp.me/"
 						value="http://ogp.me/" tabindex="1" />
 				</div>
-				<button id="try" class="btn btn-primary" tabindex="2" th:text="#{test-button}"></button>
+				<button id="try" class="btn btn-primary" tabindex="2"
+					th:text="#{test-button}"></button>
 			</div>
 		</div>
 	</div>

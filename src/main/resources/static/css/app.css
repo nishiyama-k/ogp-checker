@@ -24,12 +24,12 @@ body {
   max-width: 100%;
   width: 470px;
   max-height: 381px;
-  border: 1px solid #777777;
+  border: 1px solid #eeeeee;
   margin-left: 15px;
   margin-bottom: 30px;
   padding-bottom: 15px;
   overflow: hidden;
-  box-shadow: 2px 2px 10px #ddd;
+  box-shadow: 1px 1px 0px #ddd;
 }
 .ogp-image-img-wrapper {
   width: 470px;
@@ -68,8 +68,11 @@ body {
   margin-bottom: 15px;
 }
 #result .content {
-  color: #777777;
+  color: #BDBDBD;
 }
 #result .element {
   color: #eeeeee;
+}
+#result .title blockquote {
+  border-left-color: #337ab7;
 }

@@ -28,6 +28,7 @@ public class OgpCheckResult {
 	private Ogp video;
 
 	// Structured image
+	private Ogp imageUrl;
 	private Ogp imageSecureUrl;
 	private Ogp imageType;
 	private Ogp imageWidth;
@@ -42,6 +43,11 @@ public class OgpCheckResult {
 	// Structured audio
 	private Ogp audioSecureUrl;
 	private Ogp audioType;
+	
+	// facebook
+	private Ogp fbAdmins;
+	private Ogp fbAppId;
+	private Ogp fbPageId;
 
 	// unknown
 	private List<Ogp> unknownTags = null;
@@ -142,6 +148,14 @@ public class OgpCheckResult {
 		this.video = video;
 	}
 
+	public Ogp getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(Ogp imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public Ogp getImageSecureUrl() {
 		return imageSecureUrl;
 	}
@@ -220,6 +234,30 @@ public class OgpCheckResult {
 
 	public void setAudioType(Ogp audioType) {
 		this.audioType = audioType;
+	}
+
+	public Ogp getFbAdmins() {
+		return fbAdmins;
+	}
+
+	public void setFbAdmins(Ogp fbAdmins) {
+		this.fbAdmins = fbAdmins;
+	}
+
+	public Ogp getFbAppId() {
+		return fbAppId;
+	}
+
+	public void setFbAppId(Ogp fbAppId) {
+		this.fbAppId = fbAppId;
+	}
+
+	public Ogp getFbPageId() {
+		return fbPageId;
+	}
+
+	public void setFbPageId(Ogp fbPageId) {
+		this.fbPageId = fbPageId;
 	}
 
 	public List<Ogp> getUnknownTags() {

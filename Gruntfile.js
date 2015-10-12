@@ -76,8 +76,9 @@ module.exports = function(grunt) {
         }
     });
 
-    // do task
     grunt.registerTask('default', ['less', 'concat', 'uglify', 'cssmin',
         'jshint', 'jsbeautifier', 'clean'
     ]);
+    grunt.registerTask('lessmin', ['less', 'cssmin']);
+    grunt.registerTask('jsmin', ['concat', 'uglify']);
 };

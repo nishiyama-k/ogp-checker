@@ -19,28 +19,28 @@ public class OgpCheckServiceImpl implements OgpCheckService {
 	@Override
 	public OgpCheckResult check(String uri) {
 		System.out.println("check uri:" + uri);
-		List<Element> ogps = new ArrayList<>();
+		List<Element> metas = new ArrayList<>();
 		try {
 			Document root = Jsoup.connect(uri).get();
-			ogps = extractOgMetaTags(root);
+			metas = extractOgpMetaTags(root);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		return startCheck(ogps);
+		return startCheck(metas);
 	}
 
 	/**
 	 * @param root
 	 * @return
 	 */
-	private List<Element> extractOgMetaTags(Document root) {
+	private List<Element> extractOgpMetaTags(Document root) {
 		Element head = root.head();
-		List<Element> ogs = head.getElementsByTag("meta").stream().filter(elm -> elm.hasAttr("property"))
+		List<Element> metas = head.getElementsByTag("meta").stream().filter(elm -> elm.hasAttr("property"))
 				.filter(elm -> {
 					String property = elm.attr("property");
-					return property.startsWith("og:");
+					return property.startsWith("og:") ? true : property.startsWith("fb:");
 				}).collect(Collectors.toList());
-		return ogs;
+		return metas;
 	}
 
 	/**
@@ -86,6 +86,9 @@ public class OgpCheckServiceImpl implements OgpCheckService {
 			case "video":
 				result.setVideo(ogp);
 				break;
+			case "image:url":
+				result.setImageUrl(ogp);
+				break;
 			case "image:secure_url":
 				result.setImageSecureUrl(ogp);
 				break;
@@ -115,6 +118,15 @@ public class OgpCheckServiceImpl implements OgpCheckService {
 				break;
 			case "audio:type":
 				result.setAudioType(ogp);
+				break;
+			case "fb:admins":
+				result.setFbAdmins(ogp);
+				break;
+			case "fb:appId":
+				result.setFbAppId(ogp);
+				break;
+			case "fb:pageId":
+				result.setFbPageId(ogp);
 				break;
 			default:
 				result.addUnknownTags(ogp);

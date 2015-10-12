@@ -16,6 +16,7 @@ com.ogpcheck.App = function() {
 };
 
 com.ogpcheck.App.prototype.initializePlugins_ = function() {
+	this.refreshAutocomplete_();
 	var source = JSON.parse(localStorage.getItem('autocomplete'));
 	$('#uri').autocomplete({
 		source : [ source ]

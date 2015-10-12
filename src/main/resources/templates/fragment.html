@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div id="result" class="panel panel-default" style="display:none">
-		<h5>OGP テスト結果</h5>
+		<h5 th:text="#{test-result-title}"></h5>
 		<div class="row no-margin" th:if="${model.isNoData()} == true">
-			<div class="col-md-12">
-				OGP関連タグはありません。
-			</div>
+			<div class="col-md-12" th:text="#{test-result-nothing}"></div>
 		</div>
 		<div class="ogp-image" th:if="${model.image != null and model.url != null and model.description != null and model.title != null}">
 			<div class="ogp-image-img">

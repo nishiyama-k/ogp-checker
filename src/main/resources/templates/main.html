@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<html th:attr="lang=#{lang}" xmlns:th="http://www.thymeleaf.org">
+<head th:attr="lang=#{lang}">
 <meta charset="utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>OGP TESTER | 実際のURLでOGP確認</title>
+<title th:text="#{head.title}"></title>
 
 <meta name="description"
-	content="URLの指定して、どのようなOGPが設定されているのか確認することができます。[meta][og][Open Graph protocol][チェック][test][check]"></meta>
+	th:attr="content=#{head.description}"></meta>
 
 <!-- debug -->
 <!-- <link href="css/lib/jquery-ui.min.css" rel="stylesheet"></link>
@@ -29,8 +29,8 @@
 <body>
 	<div class="container">
 		<div class="header-panel">
-			<h3>OGP TESTER</h3>
-			<p class="lead">URLに指定されたウェブページを解析して、og関連タグを抽出します。</p>
+			<h3 th:text="#{h-title}"></h3>
+			<p class="lead" th:text="#{title-lead}"></p>
 		</div>
 		<div id="input-form" class="panel panel-default">
 			<div class="panel-body">
@@ -39,7 +39,7 @@
 						class="form-control" name="uri" placeholder="http://ogp.me/"
 						value="http://ogp.me/" tabindex="1" />
 				</div>
-				<button id="try" class="btn btn-primary" tabindex="2">TEST</button>
+				<button id="try" class="btn btn-primary" tabindex="2" th:text="#{test-button}"></button>
 			</div>
 		</div>
 	</div>

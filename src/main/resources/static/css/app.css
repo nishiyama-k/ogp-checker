@@ -1,6 +1,7 @@
 body {
   background-color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-y: scroll;
 }
 .header-panel {
   text-align: center;

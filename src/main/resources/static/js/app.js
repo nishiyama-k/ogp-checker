@@ -10,12 +10,12 @@ com.ogpcheck = com.ogpcheck || {};
  * @constructor
  */
 com.ogpcheck.App = function() {
+	$('input:visible').first().focus();
 	this.initializePlugins_();
 	this.bindEvent_();
 };
 
 com.ogpcheck.App.prototype.initializePlugins_ = function() {
-	this.refreshAutocomplete_();
 	var source = JSON.parse(localStorage.getItem('autocomplete'));
 	$('#uri').autocomplete({
 		source : [ source ]
@@ -37,7 +37,9 @@ com.ogpcheck.App.prototype.bindEvent_ = function() {
 };
 
 com.ogpcheck.App.prototype.onClickCheckOgp_ = function() {
-	$('.container').find('#result').remove();
+	$('.container').find('#result').hide('fold',{}, 300, function(){
+		$('.container').find('#result').remove();
+	});
 	$.ajax({
 		headers : {
 			'Content-Type' : 'application/json'
@@ -52,6 +54,7 @@ com.ogpcheck.App.prototype.onClickCheckOgp_ = function() {
 
 com.ogpcheck.App.prototype.onSubmitResult_ = function(response) {
 	$('.container').append($(response)[1]);
+	$('.container').find('#result').show('blind',{}, 500);
 	this.refreshAutocomplete_();
 	var source = JSON.parse(localStorage.getItem('autocomplete'));
 	$('#uri').autocomplete('setSource', [ source ]);

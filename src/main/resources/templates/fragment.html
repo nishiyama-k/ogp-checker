@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-	<div id="result" class="panel panel-default">
+	<div id="result" class="panel panel-default" style="display:none">
 		<h5>OGP テスト結果</h5>
 		<div class="row no-margin" th:if="${model.isNoData()} == true">
 			<div class="col-md-12">
@@ -12,7 +12,7 @@
 			<div class="ogp-image-img">
 				<div class="ogp-image-img-wrapper">
 					<a th:href="${model.url.content}" target="_blank"><img
-						th:attr="src=${model.image.content}" /></a>
+						th:attr="src=${model.image.content}, alt='request forbidden or wrong path : '+${model.image.content}" /></a>
 				</div>
 			</div>
 			<div class="ogp-image-content">

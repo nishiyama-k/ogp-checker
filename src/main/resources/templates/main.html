@@ -5,11 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>実際のURLでOGP確認 | OGP TESTER</title>
+<title>OGP TESTER | 実際のURLでOGP確認</title>
 
-<meta name="description" content="URLの指定して、どのようなOGPが設定されているのか確認することができます。[meta][og][Open Graph protocol][チェック][test][check]"></meta>
+<meta name="description"
+	content="URLの指定して、どのようなOGPが設定されているのか確認することができます。[meta][og][Open Graph protocol][チェック][test][check]"></meta>
 
 <!-- Bootstrap -->
+<link href="css/lib/jquery-ui.min.css" rel="stylesheet"></link>
+<link href="css/lib/jquery-ui.theme.min.css" rel="stylesheet"></link>
 <link href="css/lib/bootstrap.css" rel="stylesheet"></link>
 <link href="css/lib/bootswatch.css" rel="stylesheet"></link>
 <link href="css/plugin/jquery.autocomplete.css" rel="stylesheet"></link>
@@ -27,16 +30,16 @@
 	<div class="container">
 		<div class="header-panel">
 			<h3>OGP TESTER</h3>
-			<p class="lead">URLに指定されたウェブページを解析して、og関連タグを抽出しています。</p>
+			<p class="lead">URLに指定されたウェブページを解析して、og関連タグを抽出します。</p>
 		</div>
 		<div id="input-form" class="panel panel-default">
 			<div class="panel-body">
 				<div class="form-group">
 					<label for="regexp">URL</label> <input id="uri" type="text"
 						class="form-control" name="uri" placeholder="http://ogp.me/"
-						value="http://ogp.me/" />
+						value="http://ogp.me/" tabindex="1" />
 				</div>
-				<button id="try" class="btn btn-primary">TEST</button>
+				<button id="try" class="btn btn-primary" tabindex="2">TEST</button>
 			</div>
 		</div>
 	</div>
@@ -44,6 +47,7 @@
 	<!-- library -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/lib/jquery-ui.min.js"></script>
 	<script src="js/lib/bootstrap.min.js"></script>
 	<script src="js/lib/jquery.autocomplete.js"></script>
 	<!-- application -->
@@ -55,14 +59,20 @@
 		});
 	</script>
 	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
-	  ga('create', 'UA-68693708-1', 'auto');
-	  ga('send', 'pageview');
-	
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script',
+				'//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-68693708-1', 'auto');
+		ga('send', 'pageview');
 	</script>
 </body>
 </html>

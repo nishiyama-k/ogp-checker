@@ -1,32 +1,45 @@
 @import "bootstrap/variables.less";
 @import "bootstrap/mixins.less";
 
+html{
+	height: 100%;
+}
+
 body{
 	background-color: @body-bg;
 	font-family : Arial, Helvetica, sans-serif;
-	overflow-y: scroll;
+	height: 100%;
+	overflow: hidden;
+	background-image: url(/img/main-header.jpg);
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-attachment:fixed;
+    overflow-y: scroll;
 }
 
-.header-panel{
-	text-align: center;
-}
-
-#input-form{
-	border-width: 0px;
-	box-shadow: 0px 0px 0px;
+.container{
+	margin-bottom: 30px;
+	
+	.header-panel{
+		text-align: center;
+		margin-top: 5%;
+	}
+	
+	#input-form{
+		border-width: 0px;
+		box-shadow: 0px 0px 0px;
+		background-color: rgba(255,255,255,0.8);
+		
+	}
+	
+	.panel-body{
+		padding-bottom: 0px;
+	}
 }
 
 .row.no-margin{
     margin-left: 0px;
     margin-right: 0px;
-}
-
-.container{
-	margin-bottom: 30px;
-}
-
-#try{
-	width: 150px;
 }
 
 .ogp-image{
@@ -70,8 +83,24 @@ body{
 }
 
 #result{
-	padding-top: 15px;
-	padding-bottom: 45px;
+	padding-top: 5px;
+	position: relative;
+	background-color: rgba(255,255,255,0.8);
+	
+	.close-result{
+		cursor: pointer;
+		position: absolute;
+ 		right: 12px;
+ 		top: 12px;
+		 &:hover{
+		 	color: @gray-light;
+		 }
+	}
+	
+	.result-inner{
+		padding-top: 45px;
+		padding-bottom: 200px;
+	}
 	
 	h5{
 		text-align: center;
@@ -91,4 +120,20 @@ body{
 			border-left-color: @brand-primary;
 		}
 	} 	
+}
+
+.main-footer{
+	margin-top: 45px;
+	height: 45px;
+	width: 100%;
+}
+
+#loader{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	display:none;
+	&.shown{
+		display:inline-block;
+	}
 }

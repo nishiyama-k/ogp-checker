@@ -2,239 +2,242 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div id="result" class="panel panel-default" style="display:none">
+		<i class="close-result fa fa-times fa-2x"></i>
 		<h5 th:text="#{test-result-title}"></h5>
 		<div class="row no-margin" th:if="${model.isNoData()} == true">
 			<div class="col-md-12" th:text="#{test-result-nothing}"></div>
 		</div>
-		<div class="ogp-image" th:if="${model.image != null and model.url != null and model.description != null and model.title != null}">
-			<div class="ogp-image-img">
-				<div class="ogp-image-img-wrapper">
-					<a th:href="${model.url.content}" target="_blank"><img
-						th:attr="src=${model.image.content}, alt='request forbidden or wrong path : '+${model.image.content}" /></a>
+		<div class="result-inner">
+			<div class="ogp-image" th:if="${model.image != null and model.url != null and model.description != null and model.title != null}">
+				<div class="ogp-image-img">
+					<div class="ogp-image-img-wrapper">
+						<a th:href="${model.url.content}" target="_blank"><img
+							th:attr="src=${model.image.content}, alt='request forbidden or wrong path : '+${model.image.content}" /></a>
+					</div>
+				</div>
+				<div class="ogp-image-content">
+					<div class="ogp-image-title" th:text="${model.title.content}"></div>
+					<div class="ogp-image-description"
+						th:text="${model.description.content}"></div>
 				</div>
 			</div>
-			<div class="ogp-image-content">
-				<div class="ogp-image-title" th:text="${model.title.content}"></div>
-				<div class="ogp-image-description"
-					th:text="${model.description.content}"></div>
+	
+			<div class="row no-margin" th:if="${model.title != null}">
+				<div class="col-md-2 title"><blockquote>title</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.title.content}"></div>
+					<div class="row no-margin element" th:text="${model.title.element}"></div>
+				</div>
 			</div>
-		</div>
-
-		<div class="row no-margin" th:if="${model.title != null}">
-			<div class="col-md-2 title"><blockquote>title</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.title.content}"></div>
-				<div class="row no-margin element" th:text="${model.title.element}"></div>
+			<div class="row no-margin" th:if="${model.siteName != null}">
+				<div class="col-md-2 title"><blockquote>site_name</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.siteName.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.siteName.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.siteName != null}">
-			<div class="col-md-2 title"><blockquote>site_name</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.siteName.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.siteName.element}"></div>
+			<div class="row no-margin" th:if="${model.type != null}">
+				<div class="col-md-2 title"><blockquote>type</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.type.content}"></div>
+					<div class="row no-margin element" th:text="${model.type.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.type != null}">
-			<div class="col-md-2 title"><blockquote>type</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.type.content}"></div>
-				<div class="row no-margin element" th:text="${model.type.element}"></div>
+			<div class="row no-margin" th:if="${model.url != null}">
+				<div class="col-md-2 title"><blockquote>url</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.url.content}"></div>
+					<div class="row no-margin element" th:text="${model.url.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.url != null}">
-			<div class="col-md-2 title"><blockquote>url</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.url.content}"></div>
-				<div class="row no-margin element" th:text="${model.url.element}"></div>
+			<div class="row no-margin" th:if="${model.description != null}">
+				<div class="col-md-2 title"><blockquote>description</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.description.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.description.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.description != null}">
-			<div class="col-md-2 title"><blockquote>description</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.description.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.description.element}"></div>
+			<div class="row no-margin" th:if="${model.determiner != null}">
+				<div class="col-md-2 title"><blockquote>determiner</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.determiner.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.determiner.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.determiner != null}">
-			<div class="col-md-2 title"><blockquote>determiner</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.determiner.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.determiner.element}"></div>
+			<div class="row no-margin" th:if="${model.locale != null}">
+				<div class="col-md-2 title"><blockquote>locale</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.locale.content}"></div>
+					<div class="row no-margin element" th:text="${model.locale.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.locale != null}">
-			<div class="col-md-2 title"><blockquote>locale</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.locale.content}"></div>
-				<div class="row no-margin element" th:text="${model.locale.element}"></div>
+			<div class="row no-margin" th:if="${model.localeAlternate != null}">
+				<div class="col-md-2 title"><blockquote>locale_alternate</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.localeAlternate.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.localeAlternate.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.localeAlternate != null}">
-			<div class="col-md-2 title"><blockquote>locale_alternate</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.localeAlternate.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.localeAlternate.element}"></div>
+			<div class="row no-margin" th:if="${model.image != null}">
+				<div class="col-md-2 title"><blockquote>image</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.image.content}"></div>
+					<div class="row no-margin element" th:text="${model.image.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.image != null}">
-			<div class="col-md-2 title"><blockquote>image</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.image.content}"></div>
-				<div class="row no-margin element" th:text="${model.image.element}"></div>
+			<div class="row no-margin" th:if="${model.imageUrl != null}">
+				<div class="col-md-2 title"><blockquote>image:url</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.imageUrl.content}"></div>
+					<div class="row no-margin element" th:text="${model.imageUrl.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.imageUrl != null}">
-			<div class="col-md-2 title"><blockquote>image:url</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.imageUrl.content}"></div>
-				<div class="row no-margin element" th:text="${model.imageUrl.element}"></div>
+			<div class="row no-margin" th:if="${model.imageSecureUrl != null}">
+				<div class="col-md-2 title"><blockquote>image:secureUrl</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.imageSecureUrl.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.imageSecureUrl.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.imageSecureUrl != null}">
-			<div class="col-md-2 title"><blockquote>image:secureUrl</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.imageSecureUrl.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.imageSecureUrl.element}"></div>
+			<div class="row no-margin" th:if="${model.imageType != null}">
+				<div class="col-md-2 title"><blockquote>image:type</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.imageType.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.imageType.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.imageType != null}">
-			<div class="col-md-2 title"><blockquote>image:type</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.imageType.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.imageType.element}"></div>
+			<div class="row no-margin" th:if="${model.imageWidth != null}">
+				<div class="col-md-2 title"><blockquote>image:width</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.imageWidth.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.imageWidth.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.imageWidth != null}">
-			<div class="col-md-2 title"><blockquote>image:width</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.imageWidth.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.imageWidth.element}"></div>
+			<div class="row no-margin" th:if="${model.imageHeight != null}">
+				<div class="col-md-2 title"><blockquote>image:height</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.imageHeight.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.imageHeight.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.imageHeight != null}">
-			<div class="col-md-2 title"><blockquote>image:height</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.imageHeight.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.imageHeight.element}"></div>
+			<div class="row no-margin" th:if="${model.video != null}">
+				<div class="col-md-2 title"><blockquote>video</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.video.content}"></div>
+					<div class="row no-margin element" th:text="${model.video.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.video != null}">
-			<div class="col-md-2 title"><blockquote>video</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.video.content}"></div>
-				<div class="row no-margin element" th:text="${model.video.element}"></div>
+			<div class="row no-margin" th:if="${model.videoSecureUrl != null}">
+				<div class="col-md-2 title"><blockquote>video:secure_url</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.videoSecureUrl.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.videoSecureUrl.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.videoSecureUrl != null}">
-			<div class="col-md-2 title"><blockquote>video:secure_url</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.videoSecureUrl.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.videoSecureUrl.element}"></div>
+			<div class="row no-margin" th:if="${model.videoType != null}">
+				<div class="col-md-2 title"><blockquote>video:type</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.videoType.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.videoType.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.videoType != null}">
-			<div class="col-md-2 title"><blockquote>video:type</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.videoType.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.videoType.element}"></div>
+			<div class="row no-margin" th:if="${model.videoWidth != null}">
+				<div class="col-md-2 title"><blockquote>video:width</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.videoWidth.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.videoWidth.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.videoWidth != null}">
-			<div class="col-md-2 title"><blockquote>video:width</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.videoWidth.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.videoWidth.element}"></div>
+			<div class="row no-margin" th:if="${model.videoHeight != null}">
+				<div class="col-md-2 title"><blockquote>video:height</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.videoHeight.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.videoHeight.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.videoHeight != null}">
-			<div class="col-md-2 title"><blockquote>video:height</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.videoHeight.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.videoHeight.element}"></div>
+			<div class="row no-margin" th:if="${model.audio != null}">
+				<div class="col-md-2 title"><blockquote>audio</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${model.audio.content}"></div>
+					<div class="row no-margin element" th:text="${model.audio.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.audio != null}">
-			<div class="col-md-2 title"><blockquote>audio</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${model.audio.content}"></div>
-				<div class="row no-margin element" th:text="${model.audio.element}"></div>
+			<div class="row no-margin" th:if="${model.audioSecureUrl != null}">
+				<div class="col-md-2 title"><blockquote>audio:secure_url</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.audioSecureUrl.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.audioSecureUrl.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.audioSecureUrl != null}">
-			<div class="col-md-2 title"><blockquote>audio:secure_url</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.audioSecureUrl.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.audioSecureUrl.element}"></div>
+			<div class="row no-margin" th:if="${model.audioType != null}">
+				<div class="col-md-2 title"><blockquote>audio:type</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.audioType.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.audioType.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.audioType != null}">
-			<div class="col-md-2 title"><blockquote>audio:type</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.audioType.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.audioType.element}"></div>
+			<div class="row no-margin" th:if="${model.fbAdmins != null}">
+				<div class="col-md-2 title"><blockquote>fb:admins</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.fbAdmins.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.fbAdmins.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.fbAdmins != null}">
-			<div class="col-md-2 title"><blockquote>fb:admins</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.fbAdmins.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.fbAdmins.element}"></div>
+			<div class="row no-margin" th:if="${model.fbAppId != null}">
+				<div class="col-md-2 title"><blockquote>fb:app_id</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.fbAppId.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.fbAppId.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.fbAppId != null}">
-			<div class="col-md-2 title"><blockquote>fb:app_id</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.fbAppId.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.fbAppId.element}"></div>
+			<div class="row no-margin" th:if="${model.fbPageId != null}">
+				<div class="col-md-2 title"><blockquote>fb:page_id</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content"
+						th:text="${model.fbPageId.content}"></div>
+					<div class="row no-margin element"
+						th:text="${model.fbPageId.element}"></div>
+				</div>
 			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.fbPageId != null}">
-			<div class="col-md-2 title"><blockquote>fb:page_id</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content"
-					th:text="${model.fbPageId.content}"></div>
-				<div class="row no-margin element"
-					th:text="${model.fbPageId.element}"></div>
-			</div>
-		</div>
-		<div class="row no-margin" th:if="${model.unknownTags != null}"
-			th:each="tag : ${model.unknownTags}">
-			<div class="col-md-2 title"><blockquote>unknown</blockquote></div>
-			<div class="col-md-10">
-				<div class="row no-margin content" th:text="${tag.content}"></div>
-				<div class="row no-margin element" th:text="${tag.element}"></div>
+			<div class="row no-margin" th:if="${model.unknownTags != null}"
+				th:each="tag : ${model.unknownTags}">
+				<div class="col-md-2 title"><blockquote>unknown</blockquote></div>
+				<div class="col-md-10">
+					<div class="row no-margin content" th:text="${tag.content}"></div>
+					<div class="row no-margin element" th:text="${tag.element}"></div>
+				</div>
 			</div>
 		</div>
 	</div>

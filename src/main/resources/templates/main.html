@@ -18,6 +18,8 @@
 <meta property="og:image" content="https://ogp-checker.herokuapp.com/img/logo.png"></meta>
 <meta property="og:description" th:attr="content=#{head.ogp.description}"></meta>
 
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"></link>
+
 <!-- debug -->
 <!-- <link href="css/lib/jquery-ui.min.css" rel="stylesheet"></link>
 <link href="css/lib/jquery-ui.theme.min.css" rel="stylesheet"></link>
@@ -35,22 +37,24 @@
     <![endif]-->
 </head>
 <body>
+	<img id="loader" src="/img/loader.gif"></img>
 	<div class="container">
 		<div class="header-panel">
-			<h3 th:text="#{h-title}"></h3>
+			<img src="/img/site-logo.png"></img>
 			<p class="lead" th:text="#{title-lead}"></p>
 		</div>
 		<div id="input-form" class="panel panel-default">
 			<div class="panel-body">
 				<div class="form-group">
-					<label for="regexp">URL</label> <input id="uri" type="text"
-						class="form-control" name="uri" placeholder="http://ogp.me/"
-						value="http://ogp.me/" tabindex="1" />
+					<!-- <label for="regexp">URL</label>  --><input id="uri" type="text"
+						class="form-control" name="uri" placeholder="URL" tabindex="1" />
 				</div>
-				<button id="try" class="btn btn-primary" tabindex="2"
-					th:text="#{test-button}"></button>
+				<!-- <button id="try" class="btn btn-primary" tabindex="2"
+					th:text="#{test-button}"></button> -->
 			</div>
 		</div>
+	</div>
+	<div class="main-footer">
 	</div>
 
 	<!-- debug -->

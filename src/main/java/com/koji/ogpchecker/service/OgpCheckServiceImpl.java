@@ -122,10 +122,10 @@ public class OgpCheckServiceImpl implements OgpCheckService {
 			case "fb:admins":
 				result.setFbAdmins(ogp);
 				break;
-			case "fb:appId":
+			case "fb:app_id":
 				result.setFbAppId(ogp);
 				break;
-			case "fb:pageId":
+			case "fb:page_id":
 				result.setFbPageId(ogp);
 				break;
 			default:

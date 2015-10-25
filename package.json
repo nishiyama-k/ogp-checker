@@ -11,6 +11,7 @@
     "grunt-contrib-cssmin ": "*",
     "grunt-contrib-jshint ": "*",
     "grunt-jsbeautifier": "*",
-    "grunt-contrib-clean": "*"
+    "grunt-contrib-clean": "*",
+    "hubot-heroku-keepalive": "*"
   }
 }

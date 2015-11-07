@@ -28114,7 +28114,8 @@ com.ogpcheck.App.prototype.initializePlugins_ = function() {
     this.refreshAutocomplete_('http://ogp.me/');
     var source = JSON.parse(localStorage.getItem('autocomplete'));
     $('#uri').autocomplete({
-        source: [source]
+        source: [source],
+        openOnFocus: true
     });
 };
 

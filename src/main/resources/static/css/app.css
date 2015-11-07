@@ -72,6 +72,10 @@ body {
   position: relative;
   background-color: rgba(255, 255, 255, 0.8);
 }
+#result h5 {
+  text-align: center;
+  margin-bottom: 45px;
+}
 #result .close-result {
   cursor: pointer;
   position: absolute;
@@ -85,21 +89,21 @@ body {
   padding-top: 45px;
   padding-bottom: 200px;
 }
-#result h5 {
-  text-align: center;
-  margin-bottom: 45px;
+#result .result-inner > .row {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
-#result > .row {
-  margin-bottom: 15px;
+#result .result-inner > .row .content {
+  color: #337ab7;
+  font-size: 16px;
+  font-weight: bold;
 }
-#result .content {
-  color: #BDBDBD;
+#result .result-inner > .row .element {
+  color: #00ACC1;
+  font-size: 14px;
 }
-#result .element {
-  color: #eeeeee;
-}
-#result .title blockquote {
-  border-left-color: #337ab7;
+#result .result-inner > .row .title blockquote {
+  border-left-color: #2196F3;
 }
 .main-footer {
   margin-top: 45px;

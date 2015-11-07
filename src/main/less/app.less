@@ -87,6 +87,10 @@ body{
 	position: relative;
 	background-color: rgba(255,255,255,0.8);
 	
+	h5{
+		text-align: center;
+		margin-bottom: 45px;
+	}
 	.close-result{
 		cursor: pointer;
 		position: absolute;
@@ -100,26 +104,25 @@ body{
 	.result-inner{
 		padding-top: 45px;
 		padding-bottom: 200px;
-	}
-	
-	h5{
-		text-align: center;
-		margin-bottom: 45px;
-	}
-	>.row{
-		margin-bottom: 15px;
-	}
-	.content{
-		color: #BDBDBD;
-	}
-	.element{
-		color: @gray-lighter;
-	}
-	.title{
-		blockquote{
-			border-left-color: @brand-primary;
+		>.row{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			.content{
+				color: @brand-primary;
+				font-size: 16px;
+				font-weight: bold;
+			}
+			.element{
+				color: #00ACC1;
+				font-size: 14px;
+			}
+			.title{
+				blockquote{
+					border-left-color: #2196F3;
+				}
+			} 	
 		}
-	} 	
+	}
 }
 
 .main-footer{
